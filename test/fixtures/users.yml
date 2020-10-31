@@ -1,0 +1,7 @@
+one:
+  email: first@gmail.com
+  password_digest: password@1234
+
+two:
+  email: user2@gmail.com
+  password_digest: password

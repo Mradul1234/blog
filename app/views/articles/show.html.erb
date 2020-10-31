@@ -1,0 +1,65 @@
+
+
+<div class="container" id= 'article_<%= @article.id%>'>
+
+          <div class="row">
+            <div class="col-md-9">
+              <div class="blog-posts">
+
+                <article class="post post-large"  >
+                  <div class="post-image">
+                    <div class="owl-carousel" data-plugin-options='{"items":1}'>
+                      <div>
+                        <div class="img-thumbnail">
+                           
+                          <%= image_tag("img/logo.png", class:"img-responsive") %>
+                        </div>
+                      </div>
+                      <div>
+                        <div class="img-thumbnail">
+                          
+                          <%= image_tag("img/blog/blog-image-2.jpg", class:"img-responsive") %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="post-date">
+                    <span class="day"><%= @article.created_at.strftime('%d') %></span>
+                    <span class="month"><%= @article.created_at.strftime("%B") %></span>
+                  </div>
+
+                  <div class="post-content">
+
+                    <h2><%= link_to @article.title, article_path(@article), class: "text-success" %></h2>
+                    <p><%= truncate(@article.description, length: 100) %></p>
+
+                    
+                    <div class="post-meta">
+                      <span><i class="icon icon-user"></i>by <%= link_to @article.user.username, user_path(@article.user) %></span>
+                      <span><i class="icon icon-time"></i>Created <%= time_ago_in_words(@article.created_at) %> ago, </span>
+                      <span><i class="icon icon-comments"></i> <a href="#">12 Comments</a></span>
+                      
+                      <%= link_to "View", article_path(@article), class: "btn btn-outline-success pull-right" %>
+                      <%= link_to 'Trash', article_preview_path(@article)  %>
+                      <% if can? [:update, :destroy], @article %>
+      
+                        
+                        <button type="button" class="btn btn-outline-info pull-right" data-toggle="modal" data-target="#myupdatearticle_<%= @article.id %>"> Edit </button>
+                        <%= link_to "Delete", article_path(@article), class: "btn btn-outline-danger pull-right",  method: :delete, data: {confirm: "Are you sure?", remote: true}, id:"delete" %>
+                  
+                      <% end %>
+                    </div>
+
+                  </div>
+                </article>
+
+              </div>
+            </div>
+            
+          </div>
+      			
+		  
+
+<%= render 'update' %>
+ </div>

@@ -1,0 +1,62 @@
+<div id="login_ajax">
+
+      <p id="layout-notice"></p>
+  
+
+      <div role="main" class="main">
+          <div class="container">
+              <div class="row featured-boxes login">
+                <div class="col-md-6 col-md-offset-3">
+                  <div class="featured-box  default info-content">
+                    <div class="box-content">
+                      <h4>I'm a Returning Customer</h4>
+                      
+                      <%= form_with(scope: :user, url: login_path, remote: true ) do |f| %>
+                        <div class="row">
+                          
+                            <div class="col-md-12">
+                              <label>E-mail Address</label>
+                              <%= f.email_field :email, class: "form-control shadow rounded", placeholder: "Enter your email address" %>
+                            </div>
+                          
+                        </div>
+                        <div class="row">
+                          
+                            <div class="col-md-12">
+                              
+                              <%= link_to "[Reset Password]", reset_path ,class:"pull-right"%>
+                              <label>Password</label>
+                              <%= f.password_field :password, class: "form-control shadow rounded", placeholder: "Enter your password" %>
+                            </div>
+                          
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <span class="remember-box checkbox">
+                              <label for="rememberme">
+                                <input type="checkbox" id="rememberme" name="rememberme">Remember Me
+                              </label>
+                            </span>
+                          </div>
+
+                          <div class="col-md-6"><br>
+                            
+                            <%= f.submit "Log in", class: "btn btn-primary pull-right push-bottom"%>
+                          </div>
+                        </div>
+                        <% end %>
+
+                      
+                    </div>
+                  </div>
+                
+
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>  
+  

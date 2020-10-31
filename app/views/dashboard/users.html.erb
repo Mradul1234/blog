@@ -1,0 +1,44 @@
+ <div style="margin-left: 250px; margin-top: 100px;"> 
+ <center><h2>Users table</h2></center>
+ 	 <%= link_to 'PDF download', admin_users_path(@users, format: 'pdf') %>
+	 <table class="table table-bordered">
+	  
+	  <thead>
+	    <tr>
+	      <th scope="col">User id </th>
+	      <th scope="col">Username</th>
+	      <th scope="col">First Name</th>
+	      <th scope="col">Last Name</th>
+	      <th scope="col">Email</th>
+	      <th scope="col">Gender</th>
+	      <th scope="col">Phone number</th>
+	      <th scope="col">Zip code</th>
+	      <th scope="col">Description</th>
+	      <th scope="col">Admin</th>
+	    </tr>
+	  </thead>
+	  <% @users.each do |user| %>
+	  <tbody>
+	    <tr>
+	      <td><%= user.id %></th>
+	      <td><%= user.username %></td>
+	      <td><%= user.first_name %></td>
+	      <td><%= user.last_name %></td>
+	      <td><%= user.email %></td>
+	      <td><%= user.gender %></td>
+	      <td><%= user.phone_no %></td>
+	      <td><%= user.zip_code %></td>
+	      <td><%= user.description %></td>
+	      <td><%= user.admin %>
+	      	<% if user.admin == false %>
+	      		<%= link_to "Make Admin", make_admin_path(user), method: :post,
+                                      data: { confirm: "You sure?" } %> 
+            <% end %>
+          </td>
+	    </tr>
+	     
+	  </tbody>
+	 <% end %>
+	</table>
+
+</div>

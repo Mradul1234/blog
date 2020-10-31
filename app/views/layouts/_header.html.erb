@@ -1,0 +1,115 @@
+		<header>
+				<div class="container">
+					<h1 class="logo">
+						<a href="index.html">
+							 
+							<%= image_tag("img/logo.png") %>
+						</a>
+					</h1>
+					<div class="search">
+						<form id="searchForm" action="page-search-results.html" method="get">
+							<div class="input-group">
+								<input type="text" class="form-control search" name="q" id="q" placeholder="Search...">
+								<span class="input-group-btn">
+									<button class="btn btn-default" type="button"><i class="icon icon-search"></i></button>
+								</span>
+							</div>
+						</form>
+					</div>
+					<nav>
+						<ul class="nav nav-pills nav-top">
+
+							<% if logged_in? %>
+							<li class="nav-item">
+								
+								<%= "(Admin)" if current_user.admin? %> User: [<%= current_user.username %>]
+								
+								
+							</li>
+
+							<li class="nav-item">
+								<%= link_to 'Logout', logout_path, class: " icon icon-angle-right", method: :delete %>
+							</li>
+
+							<% else %>
+								<li>
+								<%= link_to 'Log in', login_path, class: "icon icon-angle-right" %>
+								</li>
+								<li> 
+								<%= link_to 'Sign up', signup_path, class: " icon icon-angle-right" %>
+								</li>
+							<% end %>
+
+
+
+							
+						</ul>
+					</nav>
+					<button class="btn btn-responsive-nav btn-inverse" data-toggle="collapse" data-target=".nav-main-collapse">
+						<i class="icon icon-bars"></i>
+					</button>
+				</div>
+				<div class="navbar-collapse nav-main-collapse collapse">
+					<div class="container">
+						<div class="social-icons">
+							<ul class="social-icons">
+								<li class="facebook"><a href="http://www.facebook.com/" target="_blank" title="Facebook">Facebook</a></li>
+								<li class="twitter"><a href="http://www.twitter.com/" target="_blank" title="Twitter">Twitter</a></li>
+								<li class="linkedin"><a href="http://www.linkedin.com/" target="_blank" title="Linkedin">Linkedin</a></li>
+							</ul>
+						</div>
+						<nav class="nav-main mega-menu">
+							<ul class="nav nav-pills nav-main" id="mainMenu">
+								<li class="dropdown active">
+									<a class="dropdown-toggle" href="#">
+										Home
+										 
+									</a>
+									<ul class="dropdown-menu">
+										<li class="dropdown-submenu">
+											<a href="#">Sliders</a>
+											<ul class="dropdown-menu">
+												<li><a href="index.html">Revolution Slider</a></li>
+												<li><a href="index-slider-2.html">Nivo Slider</a></li>
+											</ul>
+										</li>
+										<% if logged_in? %>
+	            							<%= link_to "Create new article", new_article_path, class: "dropdown-item" %>
+	          								 
+	          								<%= link_to "View groups", groups_path, class:"nav-link"   %>
+	          								<%= link_to "Articles", articles_path, class:"nav-link"%>
+	          								<% if current_user.admin? %>
+	          									<%= link_to "Users", users_path, class: "nav-link" %>
+	          								<% end %>
+          								<% end %> 
+									</ul>
+								</li>
+							
+								<li class="dropdown">
+									<a class="dropdown-toggle" href="#">
+										Profile
+										 
+									</a>
+									<ul class="dropdown-menu">
+
+										<% if logged_in? %>
+											<li><%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %></li>
+											<li><%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %></li>
+											<li><%= link_to "Delete profile", user_path(current_user), class: "dropdown-item text-danger", method: :delete, data: { confirm: "Are you sure?" } %></li>
+
+										<% else %>
+										<li><a href="about-us.html">About Us</a></li>
+										<li><a href="about-us-basic.html">About Us - Basic</a></li>
+										<li><a href="about-me.html">About Me</a></li>
+										<% end %>
+									</ul>
+								</li>
+							
+								
+								
+								
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</header>

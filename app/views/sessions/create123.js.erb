@@ -1,0 +1,3 @@
+$("#layout-notice").html("<%=j flash[:danger] %>");
+$('#login_ajax .main').remove()
+$('#login_ajax').append("<%= j render 'form' %>")

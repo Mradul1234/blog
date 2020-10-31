@@ -1,0 +1,13 @@
+/* Add here all your CSS customizations */
+.radio {
+  display: flex;
+  text-align: center;
+  label {
+    display: block;
+  }  
+  input {
+    width: 100%;
+  }
+  word-spacing: 30px;
+}
+

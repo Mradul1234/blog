@@ -1,0 +1,14 @@
+<h1>Reset Form</h1>
+
+<%= form_with(scope: :reset, url: reset_path, local: true) do |f| %>
+	<label>E-mail Address</label>
+	<%= f.email_field :email, placeholder: "Enter your email address" %>
+	<label>Old Password</label>
+	<%= f.password_field :old, placeholder: "Enter your old password" %>
+	<label>New Password</label>
+	<%= f.password_field :new, placeholder: "Enter your new password" %>
+	<label>Confirm Password</label>
+	<%= f.password_field :confirm, placeholder: "Enter your new password" %>
+
+	<%= f.submit %>
+<% end %>

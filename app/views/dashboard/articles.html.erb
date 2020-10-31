@@ -1,0 +1,33 @@
+<div style="margin-left: 300px; margin-top: 100px;"> 
+ <h2 style="margin-left: 300px; margin-top: 100px;">Articles table</h2>
+ 	
+	 <table class="table table-bordered">
+	  
+	  <thead>
+	    <tr>
+	      <th scope="col">Article id </th>
+	      <th scope="col">Title</th>
+	      <th scope="col">Description</th>
+	      <th scope="col">Created at</th>
+	      <th scope="col">Updated at</th>
+	      <th scope="col">User</th>
+ 
+	    </tr>
+	  </thead>
+	  <% @articles.each do |article| %>
+	  <tbody>
+	    <tr>
+	      <td><%= article.id %></th>
+	      <td><%= article.title %></td>
+	      <td><%= article.description %></td>
+	      <td><%= article.created_at %></td>
+	      <td><%= article.updated_at %></td>
+	      <td><%= article.user.username %></td>
+ 
+	    </tr>
+	     
+	  </tbody>
+	 <% end %>
+	</table>
+
+</div>

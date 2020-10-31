@@ -1,0 +1,5 @@
+$('#myupdatearticle_<%= @article.id %>').modal('hide');
+$('#article_<%= @article.id %> article').hide();
+$('#article_<%= @article.id %>').append('<%= j render @article %>');
+
+ 

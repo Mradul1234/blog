@@ -1,0 +1,18 @@
+<% if field_name=='gender' %>
+	<div class="pull-left">  
+		  <ul>
+		    <% @user.errors[field_name].each do |message| %>
+		      <div class="row" style="color: red">&nbsp;<li style="display: inline; color: red;"><%= field_name.camelize %>&nbsp;<%= message %></li></div>
+		    <% end %>
+		  </ul>
+	</div>
+
+<% elsif @user.errors[field_name].any? %>
+		<div class="pull-left" >  
+		  <ul>
+		    <% @user.errors[field_name].each do |message| %>
+		      <div class="row" style="color: red">&nbsp;<li style="display: inline; color: red;"><%= field_name.camelize %>&nbsp;<%= message %></li></div>
+		    <% end %>
+		  </ul>
+		</div>
+<% end %>

@@ -1,0 +1,9 @@
+<h1 class="text-center mt-4">Listing all articles</h1>
+
+<div id="indx">
+<%= render @articles %>
+</div>
+<div class="flickr_pagination pull-right mb-4">
+  <%= will_paginate @articles, :container => false %>
+</div> 
+

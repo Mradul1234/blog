@@ -1,0 +1,6 @@
+<h1> All the deleted articles </h1>
+<h4>Title  &nbsp; &nbsp; &nbsp; Description</h4>
+<% @articles.each do |article| %>
+	<%= article.title %> &nbsp; &nbsp; &nbsp;
+	<%= article.description %>
+<% end %>
